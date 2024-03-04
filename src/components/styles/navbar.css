@@ -1,0 +1,18 @@
+.nav-link.active{
+    margin-right: 100px;      
+}
+.navbar-brand{
+    margin-right: 100px;
+    font-size: 30px;
+    color: #3F72AF;
+}
+.nav-link{
+    margin-right: 100px;
+    font-size: 20px;
+}
+.userlog {
+    display: flex;
+    align-items: center;
+    margin-left: 100px
+  }
+  

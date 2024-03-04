@@ -1,0 +1,24 @@
+  .Parentclass {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 110vh; /* 100% der Bildschirmhöhe verwenden */
+  }
+  
+  .formgroup {
+    margin-top: 50px;
+    text-align: center;
+  }
+  #text{
+    font-size: 25px;
+  }
+  #button{
+    margin-top: 100px;
+  }
+  
+
+  
+    
+ 
+  

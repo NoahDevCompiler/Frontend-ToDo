@@ -1,0 +1,13 @@
+.Parentcard{
+    display: flex;
+    height: 100rem;
+    background: #112D4E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+}
+.card{
+    margin-right: 100px;
+}
