@@ -96,7 +96,7 @@ class Todos extends Component {
         try{
             
             var response = await fetch("https://localhost:7008/api/ToDo/gettodos?completedOnly=false");
-            var response2 = await fetch("https://localhost:7008/api/ToDo/gettodos?completedOnly=true");
+            var response2 = await fetch("https://localhost:7008/api/ToDcompletedo/gettodos?Only=true");
 
             var jsondatafilterd = await response2.json();
             var jsondata = await response.json();

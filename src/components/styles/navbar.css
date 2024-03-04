@@ -11,8 +11,11 @@
     font-size: 20px;
 }
 .userlog {
+    margin-left: 20px;
+  }
+  .container-fluid {
     display: flex;
-    align-items: center;
-    margin-left: 100px
+    justify-content: space-between; /* Um Platz zwischen den Elementen zu schaffen */
+    align-items: center; /* Vertikal zentrieren */
   }
   

@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
 import "../styles/Auth/Login.css"
+import { Navigate } from 'react-router-dom';
 import { Alert, FormCheck } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { ReactComponent as ExclamationTriangleFill } from 'bootstrap-icons/icons/exclamation-triangle-fill.svg';
 
 class Login extends Component {
     state = {
+        redirectToToDo: false,
         userInputEmail: '',
         userInputPassword: '',
         msg: '',
         showAlert: false,
         showSuccess: false,
+    }
+    GetUserName = async (id) => {
+        console.log(id)
+        const response = await fetch(`https://localhost:7008/api/FetchUserData/UserName?id=${id}`)
+
+        if (!response.ok) {
+            throw new Error('API Request Fehlgeschlagen');
+        }
+        const username = await response.text();
+        localStorage.setItem('username', username);
+
     }
 
     CheckLogin = async (userInputEmail, userInputPassword) => {
@@ -35,8 +48,8 @@ class Login extends Component {
             if (response.ok) {
                 const clonedResponse = response.clone();
                 const text = await clonedResponse.text();
-                console.log(response.text());
-                this.setState({ showAlert: true, showSuccess: true, msg: `Erfolgreiches Login ${text}`, redirectToToDo: true })
+                this.GetUserName(text)
+                this.setState({ showAlert: true, showSuccess: true, msg: `Erfolgreiches Login`, redirectToToDo: true })
 
             }
             else this.setState({showAlert: true, showSuccess: false, msg: 'Falsche Email'})
@@ -48,22 +61,19 @@ class Login extends Component {
         }
     }
 
-    handleChangeEmail = (event) => {
+    handleChangeEmail = (event) => {   
 
-        console.log(event.target.value)
-           
         this.setState({ userInputEmail: event.target.value })
-
     }
-    handleChangePassword = (event) => {
-        console.log(event.target.value)
+    handleChangePassword = (event) => {      
+
         this.setState({ userInputPassword: event.target.value })
     }
 
 
     render() {
 
-        const { userInputEmail, userInputPassword, msg, showAlert, showSuccess } = this.state;
+        const { userInputEmail, userInputPassword, msg, showAlert, showSuccess, redirectToToDo } = this.state;
 
         return <div className="Mother">
         {showAlert &&(
@@ -108,6 +118,7 @@ class Login extends Component {
                     </div>
                 </div>
                 <a className="btn btn-lg" id="btn1" onClick={() => this.CheckLogin()}>Login</a>
+                {showSuccess && <Navigate to="/to-dos" />}
             </div>
         </div>
     }
