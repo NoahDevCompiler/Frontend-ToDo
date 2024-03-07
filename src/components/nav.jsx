@@ -4,8 +4,17 @@ import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
     state = {  
-      isloggedin: true,
+      isloggedin: !!localStorage.getItem('username'),
     } 
+
+    componentDidMount() {
+      window.addEventListener('storage', this.handleStorageChange);
+    }
+
+    handleStorageChange = () => {
+      this.setState({ isloggedin: !!localStorage.getItem('username') });
+    }
+    
     render() { 
         return <nav className="navbar navbar-expand-lg">
         <div className="container-fluid d-flex justify-content-between align-items-center">
