@@ -2,10 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-##Project Status
+## Project Status
 This project is currently undergoing development and is not yet complete. It was initially started as my first web app project but was left unfinished. I'm now revisiting it with the intention of completing it.
 
-##Backend Repository
+## Backend Repository
 The backend/API for this project can be found in a separate repository named React-ToDo-API.
 
 ## Available Scripts
